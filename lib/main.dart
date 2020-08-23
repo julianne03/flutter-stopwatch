@@ -97,7 +97,7 @@ class _StopWatchPageState extends State<StopWatchPage> {
               bottom: 10,
               child: FloatingActionButton(
                 backgroundColor: Colors.deepOrange,
-                onPressed: () {},
+                onPressed: _reset,
                 child: Icon(Icons.rotate_left),
               ),
             ),
@@ -123,6 +123,14 @@ class _StopWatchPageState extends State<StopWatchPage> {
     } else {
       _pause();
     }
+  }
+  void _reset() {
+    setState(() {
+      _isRunning = false;
+      _timer?.cancel();
+      _lapTimes.clear();
+      _time = 0;
+    });
   }
 
   void _start() {
