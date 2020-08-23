@@ -62,6 +62,7 @@ class _StopWatchPageState extends State<StopWatchPage> {
   }
 
   Widget _buildBody() {
+
     return Center(
       child: Padding(
         padding: const EdgeInsets.only(top: 30),
@@ -121,4 +122,18 @@ class _StopWatchPageState extends State<StopWatchPage> {
       _pause();
     }
   }
+
+  void _start() {
+    _timer = Timer.periodic(Duration(milliseconds: 10), (timer) {
+      setState(() {
+        _time++;
+      });
+    });
+  }
+  void _pause() {
+    _timer?.cancel();
+  }
 }
+
+
+
