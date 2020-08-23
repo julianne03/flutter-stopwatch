@@ -42,6 +42,7 @@ class _StopWatchPageState extends State<StopWatchPage> {
         onPressed: () => setState(() {
           _clickButton();
         },),
+        backgroundColor: Colors.blue,
         child: Icon(Icons.play_arrow),
       ),
     floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
@@ -49,7 +50,54 @@ class _StopWatchPageState extends State<StopWatchPage> {
   }
 
   Widget _buildBody() {
-    return Container();
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.only(top: 30),
+        child: Stack(
+          children: <Widget>[
+            Column(
+              children: <Widget>[
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: <Widget>[
+                    Text(
+                      '0',
+                      style: TextStyle(fontSize: 50.0),
+                    ),
+                    Text('00'),
+                  ],
+                ),
+                Container(
+                  width: 100,
+                  height: 200,
+                  child:ListView(
+                    children: <Widget>[],
+                  ),
+                )
+              ],
+            ),
+            Positioned(
+              left: 10,
+              bottom: 10,
+              child: FloatingActionButton(
+                backgroundColor: Colors.deepOrange,
+                onPressed: () {},
+                child: Icon(Icons.rotate_left),
+              ),
+            ),
+            Positioned(
+              right: 10,
+              bottom: 10,
+              child: RaisedButton(
+                onPressed: () {},
+                child: Text('랩타임'),
+              ),
+            )
+          ],
+        ),
+      ),
+    );
   }
 
   void _clickButton() {
