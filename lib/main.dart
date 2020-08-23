@@ -87,7 +87,7 @@ class _StopWatchPageState extends State<StopWatchPage> {
                   width: 100,
                   height: 200,
                   child:ListView(
-                    children: <Widget>[],
+                    children: _lapTimes.map((time) => Text(time)).toList(),
                   ),
                 )
               ],
