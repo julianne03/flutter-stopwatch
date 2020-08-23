@@ -105,7 +105,11 @@ class _StopWatchPageState extends State<StopWatchPage> {
               right: 10,
               bottom: 10,
               child: RaisedButton(
-                onPressed: () {},
+                onPressed: () {
+                  setState(() {
+                    _recordLapTime('$sec.$hundredth');
+                  });
+                },
                 child: Text('랩타임'),
               ),
             )
@@ -142,6 +146,9 @@ class _StopWatchPageState extends State<StopWatchPage> {
   }
   void _pause() {
     _timer?.cancel();
+  }
+  void _recordLapTime(String time) {
+    _lapTimes.insert(0,'${_lapTimes.length +1}등 $time');
   }
 }
 
