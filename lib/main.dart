@@ -55,7 +55,7 @@ class _StopWatchPageState extends State<StopWatchPage> {
           _clickButton();
         },),
         backgroundColor: Colors.blue,
-        child: Icon(Icons.play_arrow),
+        child: _isRunning ? Icon(Icons.pause) : Icon(Icons.play_arrow),
       ),
     floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
@@ -113,5 +113,12 @@ class _StopWatchPageState extends State<StopWatchPage> {
   }
 
   void _clickButton() {
+    _isRunning = !_isRunning;
+
+    if(_isRunning) {
+      _start();
+    } else {
+      _pause();
+    }
   }
 }
