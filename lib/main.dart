@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'dart:async';
 void main() {
   runApp(MyApp());
 }
@@ -26,6 +26,18 @@ class StopWatchPage extends StatefulWidget {
 }
 
 class _StopWatchPageState extends State<StopWatchPage> {
+  Timer _timer;
+  var _time = 0;
+  var _isRunning = false;
+
+  List<String> _lapTimes = [];
+
+  @override
+  void dispose() {
+    _timer?.cancel();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -102,5 +114,4 @@ class _StopWatchPageState extends State<StopWatchPage> {
 
   void _clickButton() {
   }
-
 }
